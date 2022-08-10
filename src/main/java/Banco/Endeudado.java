@@ -1,9 +1,14 @@
 package Banco;
 
-import Cliente.Cliente;
+import Cliente.Usuario;
 import Cuenta.Cuenta;
 
 public class Endeudado extends Situacion{
 
-    public Cuenta crearCuenta(Cliente cliente){ return null; }
+    @Override
+    public void cobrarCredito(Usuario cliente){}
+
+    @Override
+    public void darCredito(Usuario cliente){}
+
 }

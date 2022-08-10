@@ -1,19 +1,16 @@
 package Banco;
 
-import Cliente.Cliente;
-import Cuenta.Cuenta;
+import Cliente.Usuario;
+import Cuenta.*;
 import Moneda.Moneda;
 
 public class BancoVirtual extends Banco{
 
-    public Cuenta crearCuenta(){ return null; }
-
-    @Override
-    public Cuenta crearCuenta(Cliente cliente) {
-        return null;
+    public Cuenta crearCuenta(Usuario cliente) {
+        return (Cuenta)(new AdaptadorCuentaVirtual());
     }
 
-    public void aceptarDeposito(Cliente cliente, Moneda moneda, float cantidad){}
-    public void aceptarRetiro(Cliente cliente, Moneda moneda, float cantidad){}
-    public void darCredito(Cliente cliente, float monto){}
+    public void aceptarDeposito(Usuario cliente, float cantidad){}
+    public void aceptarRetiro(Usuario cliente, float cantidad){}
+    public void darCredito(Usuario cliente, float monto){}
 }

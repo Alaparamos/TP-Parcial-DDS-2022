@@ -1,6 +1,11 @@
 package Cuenta;
-import Cliente.Cliente;
+import Cliente.Usuario;
 
-public class Cuenta {
-    private Cliente cliente;
+public abstract class Cuenta {
+    private Usuario cliente;
+
+    public abstract Cuenta crearCuenta();
+    public abstract void depositar(float monto);
+    public abstract void retirar(float monto);
+    public abstract float calcularSaldo();
 }

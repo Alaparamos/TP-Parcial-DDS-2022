@@ -1,7 +1,7 @@
 package Mediator;
 
 import Banco.Banco;
-import Cliente.Cliente;
+import Cliente.Usuario;
 import Moneda.Moneda;
 
 public class Mediator {
@@ -16,19 +16,19 @@ public class Mediator {
     }
 
 
-    public void pedidoCrearCuenta(Cliente cliente, Banco banco){
-        banco.crearCuenta(cliente);
-    }
-
-    public void depositar(Cliente cliente, Banco banco, Moneda moneda, float cantidad){
+    public void pedidoCrearCuenta(Usuario cliente, Banco banco){
 
     }
 
-    public void retirar(Cliente cliente, Banco banco, Moneda moneda, float cantidad){
+    public void depositar(Usuario cliente, Banco banco, Moneda moneda, float cantidad){
 
     }
 
-    public void hacerPedidoCredito(Cliente cliente, float monto){
+    public void retirar(Usuario cliente, Banco banco, Moneda moneda, float cantidad){
+
+    }
+
+    public void hacerPedidoCredito(Usuario cliente, float monto){
 
     }
 }
