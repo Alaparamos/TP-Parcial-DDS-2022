@@ -21,7 +21,7 @@ public class Banco {
 
     //METHODS
     public void registrarUsuario(Usuario usuario){
-        ClienteBanco nuevoCliente = ClienteBanco.ClienteBanco(usuario, this);
+        ClienteBanco nuevoCliente = new ClienteBanco(usuario, this);
         this.clientes.add(nuevoCliente);
     }
 
@@ -35,16 +35,21 @@ public class Banco {
     }
 
     public Cuenta crearCuenta(ClienteBanco cliente) {
-        if (cliente.getBanco().equals(this) && cliente.getCuenta().equals(null)) {
-            CuentaBasica nuevaCuenta = new CuentaBasica();
-            return nuevaCuenta;
+        if  (cliente.getBanco().equals(this) && cliente.getCuenta() == null) {
+            return FactoryCuenta.crearCuenta("CuentaBasica");
         } else
             return cliente.getCuenta();
     }
 
     public Credito darCredito(ClienteBanco cliente, float monto){
-        return Credito.Credito(cliente, monto);
+        return new Credito(cliente, monto);
     }
 
 
+    public void aceptarDeposito(ClienteBanco cliente, float cantidad){
+        cliente.getCuenta().depositar(cantidad);
+    }
+    public void aceptarRetiro(ClienteBanco cliente, float cantidad){
+        cliente.getCuenta().retirar(cantidad);
+    }
 }

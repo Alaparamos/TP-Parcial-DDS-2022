@@ -1,9 +1,14 @@
 package Banco;
 
 import Cliente.ClienteBanco;
-import Cliente.Usuario;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Credito {
+
+    @OneToOne(mappedBy = "credito")
     private ClienteBanco deudor;
     private float monto;
 
@@ -23,11 +28,9 @@ public class Credito {
         this.monto = monto;
     }
 
-    public static Credito Credito(ClienteBanco clienteBanco, float monto){
-        Credito nuevoCredito = new Credito();
-        nuevoCredito.setDeudor(clienteBanco);
-        nuevoCredito.setMonto(monto);
-        return nuevoCredito;
+    public Credito(ClienteBanco clienteBanco, float monto){
+        this.deudor = clienteBanco;
+        this.monto = monto;
     }
 
 }

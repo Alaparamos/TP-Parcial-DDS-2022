@@ -1,6 +1,7 @@
 package Cuenta;
 
 import Moneda.Bitcoin;
+import Moneda.RepoBitcoins;
 
 public class AdaptadorCuentaVirtual extends Cuenta{
 
@@ -11,23 +12,16 @@ public class AdaptadorCuentaVirtual extends Cuenta{
     public void setCuentaVirtual(CuentaVirtual cuentaVirtual) { this.cuentaVirtual = cuentaVirtual; }
 
     @Override
-    public Cuenta crearCuenta() {
-        AdaptadorCuentaVirtual adaptadorCuentaVirtual = new AdaptadorCuentaVirtual();
-        adaptadorCuentaVirtual.setCuentaVirtual(new CuentaVirtual());
-        return adaptadorCuentaVirtual;
-    }
-
-    @Override
     public void depositar(float monto) {
-        Bitcoin bitcoin = cuentaVirtual.elegirBitcoin();
-        int cantidad = 0; //TODO: calcular cantidad segun precio bitcoin
+        Bitcoin bitcoin = cuentaVirtual.getMetodoSeleccion().buscarBitcoin(RepoBitcoins.getInstance().getBitcoins());
+        float cantidad = cuentaVirtual.calcularCantidadBitcoins(bitcoin, monto);
         cuentaVirtual.comprarBitcoin(bitcoin, cantidad);
     }
 
     @Override
     public void retirar(float monto) {
-        Bitcoin bitcoin = cuentaVirtual.elegirBitcoin();
-        int cantidad = 0; //TODO: calcular cantidad segun precio bitcoin
+        Bitcoin bitcoin = cuentaVirtual.getMetodoSeleccion().buscarBitcoin(this.getCuentaVirtual().conseguirBitcoins());
+        float cantidad = cuentaVirtual.calcularCantidadBitcoins(bitcoin, monto);
         cuentaVirtual.venderBitcoin(bitcoin, cantidad);
     }
 

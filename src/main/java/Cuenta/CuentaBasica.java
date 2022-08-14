@@ -9,11 +9,6 @@ public class CuentaBasica extends Cuenta {
 
     //METHODS
     @Override
-    public Cuenta crearCuenta() {
-        return new CuentaBasica();
-    }
-
-    @Override
     public void depositar(float monto) {
         this.saldo += monto;
     }

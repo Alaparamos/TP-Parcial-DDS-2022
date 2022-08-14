@@ -5,11 +5,20 @@ import Banco.Credito;
 import Cuenta.Cuenta;
 import Moneda.Moneda;
 
+import javax.persistence.*;
+
+@Entity
 public class ClienteBanco {
 
     private Usuario usuario;
     private Banco banco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CUENTA")
     private Cuenta cuenta;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CREDITO")
     private Credito credito;
 
     //GETTER - SETTER
