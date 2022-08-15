@@ -3,7 +3,6 @@ package Cliente;
 import Banco.Banco;
 import Banco.Credito;
 import Cuenta.Cuenta;
-import Moneda.Moneda;
 
 import javax.persistence.*;
 
@@ -63,11 +62,4 @@ public class ClienteBanco {
         else
             this.credito.setMonto(this.credito.getMonto() - monto);
     }
-    /*public void depositar(Moneda moneda, float monto){
-        banco.aceptarDeposito(this, moneda, monto);
-    }
-
-    public void retirar(Moneda moneda, float monto){
-        banco.aceptarRetiro(this, moneda, monto);
-    }*/
 }

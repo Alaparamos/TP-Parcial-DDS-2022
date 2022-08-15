@@ -1,4 +1,4 @@
-package Moneda;
+package Bitcoin;
 
 public class Bitcoin {
 

@@ -1,6 +1,6 @@
 package Cuenta;
 
-import Moneda.Bitcoin;
+import Bitcoin.Bitcoin;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
 package Cuenta;
 
-import Moneda.Bitcoin;
-import Moneda.RepoBitcoins;
+import Bitcoin.Bitcoin;
+import Bitcoin.RepoBitcoins;
 
 public class AdaptadorCuentaVirtual extends Cuenta{
 

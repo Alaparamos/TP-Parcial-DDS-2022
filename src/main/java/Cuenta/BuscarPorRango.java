@@ -1,7 +1,6 @@
 package Cuenta;
 
-import Moneda.Bitcoin;
-import Moneda.RepoBitcoins;
+import Bitcoin.Bitcoin;
 
 import java.util.ArrayList;
 import java.util.Comparator;
