@@ -3,6 +3,7 @@ package Cuenta;
 import Bitcoin.Bitcoin;
 import Bitcoin.RepoBitcoins;
 
+
 public class AdaptadorCuentaVirtual extends Cuenta{
 
     private CuentaVirtual cuentaVirtual;

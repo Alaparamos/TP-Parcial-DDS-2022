@@ -1,34 +1,40 @@
 package Banco;
 
-import Cliente.ClienteBanco;
+import GestorDB.Cliente.ClienteBanco;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "CREDITOS")
 public class Credito {
 
-    @OneToOne(mappedBy = "credito")
+    @Id
+    @Column(name = "ID_CREDITO")
+    private String id;
+
+    @OneToOne
     private ClienteBanco deudor;
+
+    @Column
     private float monto;
 
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
     public ClienteBanco getDeudor() {
         return deudor;
     }
-
     public void setDeudor(ClienteBanco deudor) {
         this.deudor = deudor;
     }
-
     public float getMonto() {
         return monto;
     }
-
     public void setMonto(float monto) {
         this.monto = monto;
     }
 
-    public Credito(ClienteBanco clienteBanco, float monto){
+    public Credito(String id, ClienteBanco clienteBanco, float monto){
+        this.id = id;
         this.deudor = clienteBanco;
         this.monto = monto;
     }

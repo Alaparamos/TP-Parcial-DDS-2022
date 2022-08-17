@@ -1,16 +1,18 @@
 package Banco;
 
-import Cliente.ClienteBanco;
-import Cliente.Usuario;
-import Cuenta.Cuenta;
+import GestorDB.Cliente.ClienteBanco;
 
 import java.util.ArrayList;
 
 public class SuperBanco extends Banco{
 
     private ArrayList<Banco> bancos;
-    private Situacion situacion;
+    private Situacion situacion = new NoEndeudado();
     private float porcentajeReclamable;
+
+    public SuperBanco(String id, float deposito, ArrayList<ClienteBanco> clientes) {
+        super(id, deposito, clientes);
+    }
 
     public float getPorcentajeReclamable() { return porcentajeReclamable; }
     public void setPorcentajeReclamable(float porcentajeReclamable) { this.porcentajeReclamable = porcentajeReclamable; }

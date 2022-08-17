@@ -1,9 +1,5 @@
 package Banco;
 
-import Cliente.ClienteBanco;
-import Cliente.Usuario;
-import Cuenta.Cuenta;
-
 public class Endeudado extends Situacion{
 
     @Override

@@ -1,9 +1,5 @@
 package Banco;
 
-import Cliente.ClienteBanco;
-import Cliente.Usuario;
-import Cuenta.Cuenta;
-
 public abstract class Situacion {
     public abstract void aumentarDepositoBanco(SuperBanco banco, float monto);
     public abstract float reducirDepostioBanco(SuperBanco banco, float monto);

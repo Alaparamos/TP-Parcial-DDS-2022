@@ -1,5 +1,10 @@
 package Cuenta;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CUENTAS_BASICAS")
 public class CuentaBasica extends Cuenta {
     private float saldo;
 

@@ -6,12 +6,16 @@
 
     <persistence-unit name="TP-DDS-Parcial">
 
-        <class>Cliente.Usuario</class>
+        <class>GestorDB.Cliente.Usuario</class>
+        <class>GestorDB.Cliente.ClienteBanco</class>
+        <class>Banco.Banco</class>
+        <class>Banco.Credito</class>
+        <class>Cuenta.Cuenta</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SistemaBancosDSTP" />
-            <property name="javax.persistence.jdbc.user" value="" /> <!-- Agregar usuario -->
+            <property name="javax.persistence.jdbc.user" value="root" /> <!-- Agregar usuario -->
             <property name="javax.persistence.jdbc.password" value="" /> <!-- Agregar contrasenia -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
