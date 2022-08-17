@@ -24,9 +24,9 @@ public class RepoBancos {
     public List<Banco> getListaBancos() { return listaBancos; }
     public void setListaBancos(List<Banco> listaBancos) { this.listaBancos = listaBancos; }
 
-    public Banco buscarBanco(String id){
+    public Banco buscarBanco(int id){
         for(Banco unBanco : this.getListaBancos()){
-            if(unBanco.getId().equals(id))
+            if(unBanco.getId() == id)
                 return unBanco;
         }
         //Si no lo encuentra

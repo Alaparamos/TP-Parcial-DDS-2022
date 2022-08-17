@@ -23,9 +23,9 @@ public class RepoClientesBanco {
     public List<ClienteBanco> getListaClienteBancos() { return listaClienteBancos; }
     public void setListaClienteBancos(List<ClienteBanco> listaClienteBancos) { this.listaClienteBancos = listaClienteBancos; }
 
-    public ClienteBanco buscarClienteBanco(String id){
+    public ClienteBanco buscarClienteBanco(int id){
         for(ClienteBanco unClienteBanco : this.getListaClienteBancos()){
-            if(unClienteBanco.getId().equals(id))
+            if(unClienteBanco.getId() == id)
                 return unClienteBanco;
         }
         //Si no lo encuentra

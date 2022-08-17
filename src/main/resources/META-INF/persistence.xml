@@ -4,7 +4,7 @@
              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
-    <persistence-unit name="TP-DDS-Parcial">
+    <persistence-unit name="db">
 
         <class>Cliente.Usuario</class>
         <class>Cliente.ClienteBanco</class>
@@ -17,12 +17,16 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SistemaBancosDSTP" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sistemabancosdstp" />
             <property name="javax.persistence.jdbc.user" value="root" /> <!-- Agregar usuario -->
             <property name="javax.persistence.jdbc.password" value="" /> <!-- Agregar contrasenia -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
+
+
             <property name="hibernate.show_sql" value="true"/>
+
+
         </properties>
     </persistence-unit>
 

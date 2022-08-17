@@ -24,9 +24,9 @@ public class RepoCreditos {
     public List<Credito> getListaCreditos() { return listaCreditos; }
     public void setListaCreditos(List<Credito> listaCreditos) { this.listaCreditos = listaCreditos; }
 
-    public Credito buscarCredito(String id){
+    public Credito buscarCredito(int id){
         for(Credito unCredito : this.getListaCreditos()){
-            if(unCredito.getId().equals(id))
+            if(unCredito.getId() == id)
                 return unCredito;
         }
         //Si no lo encuentra

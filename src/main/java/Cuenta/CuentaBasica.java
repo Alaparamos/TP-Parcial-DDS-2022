@@ -2,12 +2,11 @@ package Cuenta;
 
 import javax.persistence.*;
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-@Table(name = "CUENTAS_BASICAS")
+@DiscriminatorValue("basica")
 public class CuentaBasica extends Cuenta {
 
-    @Column(name = "SALDO")
+    @Column
     private float saldo;
 
     //GETTER - SETTER

@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "USUARIOS")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
-    @Column(name = "ID_USUARIO")
-    private String id;
+    @GeneratedValue
+    private int id;
 
-    @Column(name = "NOMBRE")
+    @Column
     private String nombre;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -23,7 +23,7 @@ public class Usuario {
 
     public Usuario(){}
 
-    public Usuario(String id, String nombre, List<ClienteBanco> bancos) {
+    public Usuario(int id, String nombre, List<ClienteBanco> bancos) {
         this.id = id;
         this.nombre = nombre;
         this.bancos = bancos;
@@ -32,8 +32,8 @@ public class Usuario {
     //Getter and Setter
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public List<ClienteBanco> getBancos() { return bancos; }
     public void setBancos(ArrayList<ClienteBanco> bancos) { this.bancos = bancos; }
 

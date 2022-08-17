@@ -5,22 +5,21 @@ import Cuenta.CuentaVirtual;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BITCOINS_CUENTA")
+@Table(name = "bitcoinCuenta")
 public class BitcoinCuenta {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID_BITCOIN_CUENTA")
-    private String id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CUENTA_ID")
+    @JoinColumn(name = "cuentaVirtual_id", referencedColumnName = "id")
     private CuentaVirtual cuentaVirtual;
 
-    @Column(name = "ID_BITCOIN")
+    @Column
     private String idBitcoin;
 
-    @Column(name = "CANTIDAD")
+    @Column
     private float cantidad;
 
     public BitcoinCuenta(CuentaVirtual cuentaVirtual, String idBitcoin, float cantidad) {
@@ -29,8 +28,8 @@ public class BitcoinCuenta {
         this.cantidad = cantidad;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public CuentaVirtual getCuentaVirtual() { return cuentaVirtual; }
     public void setCuentaVirtual(CuentaVirtual cuentaVirtual) { this.cuentaVirtual = cuentaVirtual; }
     public String getIdBitcoin() { return idBitcoin; }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class BancoVirtual extends Banco{
 
-    public BancoVirtual(String id, float deposito, ArrayList<ClienteBanco> clientes) {
+    public BancoVirtual(int id, float deposito, ArrayList<ClienteBanco> clientes) {
         super(id, deposito, clientes);
     }
 

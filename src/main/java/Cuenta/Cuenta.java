@@ -3,18 +3,18 @@ import Cliente.ClienteBanco;
 
 import javax.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Cuenta {
-
     @Id
-    @Column(name = "ID_CUENTA")
-    private String id;
+    @GeneratedValue
+    private int id;
 
-    @OneToOne(mappedBy = "cuenta")
+    @OneToOne(mappedBy = "cuenta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ClienteBanco cliente;
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public ClienteBanco getCliente() { return cliente; }
     public void setCliente(ClienteBanco cliente) { this.cliente = cliente; }
 

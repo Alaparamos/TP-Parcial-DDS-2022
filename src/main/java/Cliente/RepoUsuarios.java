@@ -23,9 +23,9 @@ public class RepoUsuarios {
     public List<Usuario> getListaUsuarios() { return listaUsuarios; }
     public void setListaUsuarios(List<Usuario> listaUsuarios) { this.listaUsuarios = listaUsuarios; }
 
-    public Usuario buscarUsuario(String id){
+    public Usuario buscarUsuario(int id){
         for(Usuario unUsuario : this.getListaUsuarios()){
-            if(unUsuario.getId().equals(id))
+            if(unUsuario.getId() == id)
                 return unUsuario;
         }
         //Si no lo encuentra

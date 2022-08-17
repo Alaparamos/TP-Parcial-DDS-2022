@@ -3,9 +3,16 @@ package Cuenta;
 import Bitcoin.Bitcoin;
 import Bitcoin.RepoBitcoins;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@DiscriminatorValue("virtual")
 public class AdaptadorCuentaVirtual extends Cuenta{
 
+    @OneToOne
     private CuentaVirtual cuentaVirtual;
 
     public CuentaVirtual getCuentaVirtual() { return cuentaVirtual; }

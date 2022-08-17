@@ -23,9 +23,9 @@ public class RepoCuentas {
     public List<Cuenta> getListaCuentas() { return listaCuentas; }
     public void setListaCuentas(List<Cuenta> listaCuentas) { this.listaCuentas = listaCuentas; }
 
-    public Cuenta buscarCuenta(String id) {
+    public Cuenta buscarCuenta(int id) {
         for (Cuenta unCuenta : this.getListaCuentas()) {
-            if (unCuenta.getId().equals(id))
+            if (unCuenta.getId() == id)
                 return unCuenta;
         }
         //Si no lo encuentra

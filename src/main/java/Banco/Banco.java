@@ -10,34 +10,35 @@ import java.util.List;
 import java.util.Optional;
 
 @Entity
-@Table(name = "BANCOS")
+@Table(name = "banco")
 public class Banco {
 
     @Id
-    @Column(name = "ID_BANCO")
-    private String id;
+    @GeneratedValue
+    private int id;
 
-    @Column(name = "DEPOSITO")
+    @Column
     private float deposito;
+    @Transient
     private final float porcentajeDepositoMinimo = 2;
 
-    @OneToMany(mappedBy = "banco")
+    @OneToMany(mappedBy = "banco", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ClienteBanco> clientes;
-
+    @Transient
     private final float porcentajeIntereses = 2;
 
     //CONSTRUCTOR
     public Banco(){}
 
-    public Banco(String id, float deposito, ArrayList<ClienteBanco> clientes) {
+    public Banco(int id, float deposito, ArrayList<ClienteBanco> clientes) {
         this.id = id;
         this.deposito = deposito;
         this.clientes = clientes;
     }
 
     //GETTERs - SETTERs
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public float getDeposito() { return deposito; }
     public void setDeposito(float deposito) { this.deposito = deposito; }
     public List<ClienteBanco> getClientes() { return clientes; }
@@ -83,7 +84,6 @@ public class Banco {
         if  (cliente.getBanco().equals(this) && cliente.getCuenta() == null) {
             FactoryCuentaBasica fCB = new FactoryCuentaBasica();
             Cuenta nuevaCuenta = fCB.crearCuenta();
-            nuevaCuenta.setId(cliente.getId() + "_cuenta");
             nuevaCuenta.setCliente(cliente);
             return nuevaCuenta;
         } else
@@ -93,7 +93,7 @@ public class Banco {
     public Credito darCredito(ClienteBanco cliente, float monto){
         if(cliente.getCredito() == null && !this.estaEndeudado()){
             float montoPrestado = this.reducirDeposito(monto);
-            return new Credito(cliente.getId() + "_credito",cliente, montoPrestado * this.porcentajeIntereses);
+            return new Credito(cliente, montoPrestado * this.porcentajeIntereses);
         }
         else
             return null;

@@ -5,21 +5,21 @@ import Cliente.ClienteBanco;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CREDITOS")
+@Table(name = "credito")
 public class Credito {
 
     @Id
-    @Column(name = "ID_CREDITO")
-    private String id;
+    @GeneratedValue
+    private int id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "credito")
     private ClienteBanco deudor;
 
-    @Column(name = "MONTO")
+    @Column
     private float monto;
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public ClienteBanco getDeudor() {
         return deudor;
     }
@@ -33,8 +33,7 @@ public class Credito {
         this.monto = monto;
     }
 
-    public Credito(String id, ClienteBanco clienteBanco, float monto){
-        this.id = id;
+    public Credito(ClienteBanco clienteBanco, float monto){
         this.deudor = clienteBanco;
         this.monto = monto;
     }

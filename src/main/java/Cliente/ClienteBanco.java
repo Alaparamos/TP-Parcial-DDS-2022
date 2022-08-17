@@ -7,38 +7,38 @@ import Cuenta.Cuenta;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CLIENTE_BANCO")
+@Table(name = "clienteBanco")
 public class ClienteBanco {
 
     @Id
-    @Column(name = "ID")
-    private String id;
+    @GeneratedValue
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USUARIO_ID")
+    @JoinColumn(name = "usuario_id", referencedColumnName =  "id")
     private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BANCO_ID")
+    @JoinColumn(name = "banco_id", referencedColumnName = "id")
     private Banco banco;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CUENTA_ID")
+    @JoinColumn(name = "cuenta_id", referencedColumnName = "id")
     private Cuenta cuenta;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CREDITO_ID")
+    @JoinColumn(name = "credito_id", referencedColumnName = "id")
     private Credito credito;
 
-    public ClienteBanco(String id, Usuario usuario, Banco banco) {
+    public ClienteBanco(int id, Usuario usuario, Banco banco) {
         this.id = id;
         this.usuario = usuario;
         this.banco = banco;
     }
 
     //GETTER - SETTER
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public Usuario getUsuario() { return usuario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
     public Banco getBanco() { return banco; }

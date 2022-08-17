@@ -10,7 +10,7 @@ public class SuperBanco extends Banco{
     private Situacion situacion = new NoEndeudado();
     private float porcentajeReclamable;
 
-    public SuperBanco(String id, float deposito, ArrayList<ClienteBanco> clientes) {
+    public SuperBanco(int id, float deposito, ArrayList<ClienteBanco> clientes) {
         super(id, deposito, clientes);
     }
 

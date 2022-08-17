@@ -43,35 +43,35 @@ public class GestorDB {
         entityManager.persist(o);
     }
 
-    public Banco buscarBanco(String id){
+    public Banco buscarBanco(int id){
         String sql = "FROM Banco WHERE id=" + '\'' + id + '\'';
         List<Banco> resultado = entityManager.createQuery(sql).getResultList();
         entityManager.persist(resultado.get(0));
         return resultado.get(0);
     }
 
-    public Usuario buscarUsuario(String id){
+    public Usuario buscarUsuario(int id){
         String sql = "FROM Usuario WHERE id=" + '\'' + id + '\'';
         List<Usuario> resultado = entityManager.createQuery(sql).getResultList();
         entityManager.persist(resultado.get(0));
         return resultado.get(0);
     }
 
-    public ClienteBanco buscarClienteBanco(String id){
+    public ClienteBanco buscarClienteBanco(int id){
         String sql = "FROM ClienteBanco WHERE id=" + '\'' + id + '\'';
         List<ClienteBanco> resultado = entityManager.createQuery(sql).getResultList();
         entityManager.persist(resultado.get(0));
         return resultado.get(0);
     }
 
-    public Credito buscarCredito(String id){
+    public Credito buscarCredito(int id){
         String sql = "FROM Credito WHERE id=" + '\'' + id + '\'';
         List<Credito> resultado = entityManager.createQuery(sql).getResultList();
         entityManager.persist(resultado.get(0));
         return resultado.get(0);
     }
 
-    public Cuenta buscarCuenta(String id){
+    public Cuenta buscarCuenta(int id){
         String sql = "FROM Cuenta WHERE id=" + '\'' + id + '\'';
         List<Cuenta> resultado = entityManager.createQuery(sql).getResultList();
         entityManager.persist(resultado.get(0));
