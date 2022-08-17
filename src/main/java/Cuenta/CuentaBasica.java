@@ -2,7 +2,7 @@ package Cuenta;
 
 import javax.persistence.*;
 
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
 @Table(name = "CUENTAS_BASICAS")
 public class CuentaBasica extends Cuenta {

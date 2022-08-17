@@ -17,7 +17,7 @@ public class Banco {
     @Column(name = "ID_BANCO")
     private String id;
 
-    @Column
+    @Column(name = "DEPOSITO")
     private float deposito;
     private final float porcentajeDepositoMinimo = 2;
 

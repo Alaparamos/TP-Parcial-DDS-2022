@@ -15,7 +15,7 @@ public class Credito {
     @OneToOne
     private ClienteBanco deudor;
 
-    @Column
+    @Column(name = "MONTO")
     private float monto;
 
     public String getId() { return id; }
