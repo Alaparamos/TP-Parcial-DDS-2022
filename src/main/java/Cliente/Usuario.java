@@ -1,4 +1,4 @@
-package GestorDB.Cliente;
+package Cliente;
 
 import Banco.*;
 import GestorDB.GestorDB;
@@ -63,4 +63,5 @@ public class Usuario {
     public void pagarCredito(ClienteBanco clienteBanco, float monto){
         clienteBanco.pagarCredito(monto);
     }
+
 }

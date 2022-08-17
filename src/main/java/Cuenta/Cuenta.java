@@ -1,5 +1,5 @@
 package Cuenta;
-import GestorDB.Cliente.ClienteBanco;
+import Cliente.ClienteBanco;
 
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ public abstract class Cuenta {
     @Column(name = "ID_CUENTA")
     private String id;
 
-    @OneToOne
+    @OneToOne(mappedBy = "cuenta")
     private ClienteBanco cliente;
 
     public String getId() { return id; }

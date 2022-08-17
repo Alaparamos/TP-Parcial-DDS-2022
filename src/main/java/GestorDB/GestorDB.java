@@ -2,8 +2,8 @@ package GestorDB;
 
 
 import Banco.Banco;
-import GestorDB.Cliente.ClienteBanco;
-import GestorDB.Cliente.Usuario;
+import Cliente.ClienteBanco;
+import Cliente.Usuario;
 import Banco.Credito;
 import Cuenta.Cuenta;
 

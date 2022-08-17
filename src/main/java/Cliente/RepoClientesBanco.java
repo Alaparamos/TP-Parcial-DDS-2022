@@ -1,4 +1,4 @@
-package GestorDB.Cliente;
+package Cliente;
 
 import GestorDB.GestorDB;
 

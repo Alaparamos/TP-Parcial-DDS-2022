@@ -1,11 +1,13 @@
 package Cuenta;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Entity
 @Table(name = "CUENTAS_BASICAS")
 public class CuentaBasica extends Cuenta {
+
+    @Column(name = "SALDO")
     private float saldo;
 
     //GETTER - SETTER

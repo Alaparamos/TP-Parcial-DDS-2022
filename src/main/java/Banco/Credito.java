@@ -1,6 +1,6 @@
 package Banco;
 
-import GestorDB.Cliente.ClienteBanco;
+import Cliente.ClienteBanco;
 
 import javax.persistence.*;
 
